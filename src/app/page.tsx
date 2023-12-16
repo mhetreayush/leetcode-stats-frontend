@@ -1,5 +1,7 @@
-import { RedemptionCard } from "@/components/RedemptionCard/RedemptionCard";
-import { RedemptionItemType } from "@/components/RedemptionCard/types";
+import {
+  RedemptionCard,
+  RedemptionItemType,
+} from "@/components/RedemptionCard";
 
 type LeetcodeStatsType = {
   solved: {
@@ -32,7 +34,10 @@ const redemptionItems: Omit<RedemptionItemType, "currentPoints">[] = [
 
 export default async function Home() {
   const leetcodeStats: LeetcodeStatsType = await fetch(
-    process?.env?.BACKEND_URL ?? ""
+    process?.env?.BACKEND_URL ?? "",
+    {
+      cache: "no-cache",
+    }
   ).then((res) => res.json());
   return (
     <main className="h-screen w-screen flex items-center justify-center">

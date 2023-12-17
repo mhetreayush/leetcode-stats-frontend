@@ -4,11 +4,7 @@ import {
 } from "@/components/RedemptionCard";
 
 type LeetcodeStatsType = {
-  solved: {
-    easy: number;
-    medium: number;
-    hard: number;
-  };
+  solved: Record<"easy" | "medium" | "hard", number>;
   points: number;
   lastUpdated: string;
   totalCount: number;

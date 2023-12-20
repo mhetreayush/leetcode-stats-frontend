@@ -36,8 +36,8 @@ export default async function Home() {
     }
   ).then((res) => res.json());
   return (
-    <main className="h-screen w-screen flex items-center justify-center">
-      <div className="p-4 md:p-32 flex justify-center drop-shadow-sm border-2 rounded-xl border-gray-700 flex-col gap-4">
+    <main className="flex flex-col gap-8 w-full">
+      <div className="flex flex-col gap-4 w-full">
         <p>Total points: {leetcodeStats.points}</p>
         <div>
           Leetcode stats:
@@ -48,15 +48,15 @@ export default async function Home() {
           </ul>
         </div>
         <p>Last updated: {leetcodeStats.lastUpdated}</p>
-        <div className="flex justify-between w-full gap-10">
-          {redemptionItems.map((item) => (
-            <RedemptionCard
-              key={item.id}
-              {...item}
-              currentPoints={leetcodeStats.points}
-            />
-          ))}
-        </div>
+      </div>
+      <div className="flex md:flex-row flex-col justify-between w-full gap-10">
+        {redemptionItems.map((item) => (
+          <RedemptionCard
+            key={item.id}
+            {...item}
+            currentPoints={leetcodeStats.points}
+          />
+        ))}
       </div>
     </main>
   );
